@@ -1,6 +1,6 @@
-### Installing the CRI Shim on your hosts
+### Installing the CRI Shim on your nodes
 If your pods will be using the VPP TCP/IP stack, you must first install the
-CRI Shim on each host where the stack will be used. The CRI Shim installation
+CRI Shim on each node where the stack will be used. The CRI Shim installation
 should only be performed after `kubelet`, `kubeadm` and `kubectl` have already
 been [installed][2].
 
@@ -18,3 +18,11 @@ been initialized before installing the CRI Shim, just reboot the node.
 
 [1]: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
 [2]: https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl
+
+
+### Uninstalling the CRI Shim
+
+To uninstall the CRI Shim as part of Kubernetes tear-down on a node run as root (not using sudo):
+```
+bash <(curl -s https://raw.githubusercontent.com/contiv/vpp/master/k8s/cri-install.sh) --uninstall
+```
